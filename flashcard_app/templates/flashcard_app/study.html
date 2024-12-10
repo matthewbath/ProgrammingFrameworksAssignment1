@@ -1,0 +1,15 @@
+<h1>Study Flashcards</h1>
+{% for flashcard in flashcards %}
+    <div class="flashcard">
+        <p><strong>Question:</strong> {{ flashcard.question }}</p>
+        <button onclick="toggleAnswer('{{ flashcard.id }}')">Show Answer</button>
+        <p id="answer-{{ flashcard.id }}" style="display: none;">{{ flashcard.answer }}</p>
+    </div>
+{% endfor %}
+
+<script>
+function toggleAnswer(id) {
+    const answer = document.getElementById(`answer-${id}`);
+    answer.style.display = answer.style.display === "none" ? "block" : "none";
+}
+</script>

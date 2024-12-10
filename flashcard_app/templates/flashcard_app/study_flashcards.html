@@ -1,0 +1,20 @@
+<h1>Study: {{ flashcard_set.title }}</h1>
+<div id="flashcards">
+    {% for flashcard in flashcards %}
+        <div class="flashcard">
+            <p class="question">{{ flashcard.question }}</p>
+            <p class="answer" style="display:none">{{ flashcard.answer }}</p>
+            <button class="show-answer-btn">Show Answer</button>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.querySelectorAll('.show-answer-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const answer = this.previousElementSibling;  
+            answer.style.display = 'block'; 
+            this.style.display = 'none';  
+        });
+    });
+</script>

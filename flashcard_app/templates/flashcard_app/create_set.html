@@ -1,0 +1,6 @@
+<form method="POST" action="/api/flashcard_sets/create/">
+    {% csrf_token %}
+    <label for="set-name">Set Name:</label>
+    <input type="text" id="set-name" name="name" required>
+    <button type="submit">Create Set</button>
+</form>

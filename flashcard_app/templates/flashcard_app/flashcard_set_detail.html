@@ -1,0 +1,27 @@
+<h1>{{ flashcard_set.title }}</h1>
+<p>{{ flashcard_set.description }}</p>
+
+<h2>Flashcards</h2>
+<ul>
+    {% for flashcard in flashcards %}
+        <li>
+            <div class="flashcard">
+                <p class="question">{{ flashcard.question }}</p>
+                <p class="answer" style="display:none">{{ flashcard.answer }}</p>
+                <button class="show-answer-btn">Show Answer</button>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<script>
+    document.querySelectorAll('.show-answer-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const answer = this.previousElementSibling;  
+            answer.style.display = 'block'; 
+            this.style.display = 'none';  
+        });
+    });
+</script>
+
+<a href="{% url 'create_flashcard' flashcard_set.id %}">Add a Flashcard</a>

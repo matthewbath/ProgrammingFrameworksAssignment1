@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashcards</title>
+</head>
+<body>
+    <h1>Flashcards</h1>
+    <ul>
+        {% for flashcard in flashcards %}
+            <li>{{ flashcard.question }} - {{ flashcard.answer }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
